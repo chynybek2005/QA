@@ -50,54 +50,6 @@
 .justify-center {
     justify-content: center;
 }
-
-.burger {
-    display: none;
-    &__btn {
-        position: relative;
-        display: inline-block;
-        z-index: 9999;
-        width: 40px;
-        height: 3px;
-        background: var(--light);
-        ::before {
-            content: "";
-            position: absolute;
-            width: 40px;
-            height: 3px;
-            background: var(--light);
-            top: -10px;
-            left: 0;
-            transition: 0.6s;
-        }
-        ::after {
-            content: "";
-            position: absolute;
-            width: 40px;
-            height: 3px;
-            background: var(--light);
-            bottom: -10px;
-            left: 0;
-            transition: 0.6s;
-        }
-    }
-    &__nav {
-        position: absolute;
-        background-color: var(--black);
-        left: 0;
-        top: -600px;
-        width: 100%;
-        padding: 20px;
-        transition: .6s;
-    }
-    &__link {
-        display: block;
-        text-align: center;
-        font-size: 24px;
-        margin-bottom: 20px;
-        color: var(--light);
-    }
-}
 /* UNIQUE */
 
 /* HEADER SECTION */
@@ -156,6 +108,88 @@
     }
 }
 /* HEADER SECTION */
+
+/* BURGER SECTION */
+.burger__btn {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 2px;
+    background-color: var(--light);
+    transition: .6s;
+    z-index: 9999;
+    &::before {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 3px;
+        background: var(--light);
+        top: -9px;
+        left: 0;
+        transition: .6s;
+    }
+}
+#burger {
+    &:checked+.burger__btn {
+        background: var(--light);
+        transform: matrix(-0.73, -0.68, -0.68, 0.73, 0, 0);
+        &::before {
+            transform: rotate(90deg);
+            top: 0;
+        }
+    }
+
+    &:checked {
+        ~ {
+            .burger__nav {
+                top: 0;
+            }
+        }
+    }
+}
+.burger {
+    display: none;
+    &__nav {
+        position: absolute;
+        background: var(--black);
+        left: 0;
+        width: 100%;
+        height: auto;
+        padding-top: 168px;
+        top: -17750px;
+        transition: 0.5s;
+        z-index: 888;
+        box-shadow: -18px 7600px 61px 7600px rgba(0,0,0,0.75);
+        -webkit-box-shadow: -18px 7600px 61px 7600px rgba(0,0,0,0.75);
+        -moz-box-shadow: -18px 7600px 61px 7600px rgba(0,0,0,0.75);
+    }
+
+    &__link {
+        display: block;
+        text-align: center;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 100%;
+        color: var(--light);
+        margin-bottom: 40px;
+    }
+    &__sm-link {
+        display: block;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 129px;
+        height: 42px;
+        background: #FFFFFF;
+        border-radius: 40px;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 100%;
+        color: var(--color-dark);
+        margin: 0 auto 40px auto;
+    }
+}
+/* BURGER SECTION */
 
 /* HERO SECTION */
 .hero {
